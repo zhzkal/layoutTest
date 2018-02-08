@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="1.5"
+        android:gravity="left">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="#ffff00"
+            android:gravity="center"
+
+            android:text="1" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="#0040ff"
+            android:gravity="center"
+            android:text="2" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="#4cff00"
+            android:gravity="center"
+
+            android:text="3" />
+
+    </TableRow>
+
+    <TableRow android:layout_weight="3">
+
+
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00fffb"
+            android:gravity="center"
+            android:text="4"
+           />
+
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ff4400"
+            android:gravity="center"
+            android:text="5"
+             />
+
+    </TableRow>
+
+    <TableRow android:layout_weight="3">
+
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ff4000"
+            android:gravity="center"
+            android:text="6" />
+
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#e600ff"
+            android:gravity="center"
+            android:text="7" />
+
+        <TextView
+            android:layout_height="match_parent"
+
+            android:layout_weight="1"
+            android:background="#00ff0d"
+            android:gravity="center"
+            android:text="8" />
+    </TableRow>
+
+    <TableRow android:layout_weight="1">
+
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#565a80"
+            android:gravity="center"
+            android:text="9" />
+
+
+    </TableRow>
+</TableLayout>
