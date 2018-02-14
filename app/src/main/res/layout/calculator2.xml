@@ -13,26 +13,42 @@
         android:layout_weight="1.5"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tv_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="#ffffff"
+            android:gravity="right|center_vertical"
+            android:paddingRight="10dp"
+            android:text="temp"
+            android:textColor="#000000"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_memo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
             android:layout_weight="3"
             android:background="#ffffff"
-            android:gravity="right|center_vertical"
-            android:textColor="#ffffff"
+            android:gravity="right|bottom"
+            android:paddingRight="10dp"
+            android:text=""
+            android:textColor="#000000"
             android:textSize="30dp" />
 
         <TextView
             android:id="@+id/tv_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:layout_weight="2"
             android:background="#ffffff"
             android:gravity="right|center_vertical"
-            android:textColor="#ffffff"
+            android:paddingRight="10dp"
+            android:text="result"
+            android:textColor="#000000"
             android:textSize="20dp" />
 
     </LinearLayout>
@@ -82,15 +98,6 @@
             android:textColor="#ffffff" />
 
         <Button
-            android:id="@+id/btn_2square"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#333333"
-            android:text="X^2"
-            android:textColor="#ffffff" />
-
-        <Button
             android:id="@+id/btn_square"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,12 +107,21 @@
             android:textColor="#ffffff" />
 
         <Button
-            android:id="@+id/btn_madamada"
+            android:id="@+id/btn_leftbracket2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#333333"
-            android:text="뭐넣지?"
+            android:text="["
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_rightbracket2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#333333"
+            android:text="]"
             android:textColor="#ffffff" />
 
     </LinearLayout>
@@ -283,7 +299,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#333333"
-            android:text="*"
+            android:text="×"
             android:textColor="#ffffff" />
 
     </LinearLayout>
@@ -314,7 +330,7 @@
             android:textColor="#ffffff" />
 
         <Button
-            android:id="@+id/btn_nn"
+            android:id="@+id/btn_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -328,7 +344,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#333333"
-            android:text="/"
+            android:text="÷"
             android:textColor="#ffffff" />
 
     </LinearLayout>
