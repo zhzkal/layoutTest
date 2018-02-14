@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn_gop;
     Button btn_nanugi;
     Button btn_result;
+    Button btn_factorial;
+    Button btn_square;
     Button btn_dot;
     Button btn_del;
     Button btn_allclear;
@@ -65,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
         btn_dot = (Button) findViewById(R.id.btn_dot);
         btn_del = (Button) findViewById(R.id.btn_del);
         btn_allclear = (Button) findViewById(R.id.btn_allclear);
-
+        btn_square = (Button) findViewById(R.id.btn_square);
+        btn_factorial = (Button) findViewById(R.id.btn_factorial);
         tv_memo = (TextView) findViewById(R.id.tv_memo);
         tv_result = (TextView) findViewById(R.id.tv_result);
 
@@ -101,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         btn_leftbracket2.setOnClickListener(bh);
         btn_rightbracket.setOnClickListener(bh);
         btn_rightbracket2.setOnClickListener(bh);
+        btn_square.setOnClickListener(bh);
+        btn_factorial.setOnClickListener(bh);
     }
 
     class ButtonHandler implements View.OnClickListener {
@@ -252,6 +257,30 @@ public class MainActivity extends AppCompatActivity {
 
                 s = s.substring(0, s.length() - 1);
                 tv_memo.setText(s);
+            } else if (btn_factorial == view) {
+                s = String.valueOf(tv_memo.getText());
+                if (s == "") {
+                    stemp = String.valueOf(tv_temp.getText());
+                    for (int i = 0; i < stemp.length(); i++) {
+                        if (stemp.substring(i, i + 1).equals("=")) {
+                            s = stemp.substring(i + 1, stemp.length());
+                        }
+                    }
+                }
+                s = s + "!";
+                tv_memo.setText(s);
+            } else if (btn_square == view) {
+                s = String.valueOf(tv_memo.getText());
+                if (s == "") {
+                    stemp = String.valueOf(tv_temp.getText());
+                    for (int i = 0; i < stemp.length(); i++) {
+                        if (stemp.substring(i, i + 1).equals("=")) {
+                            s = stemp.substring(i + 1, stemp.length());
+                        }
+                    }
+                }
+                s = s + "^";
+                tv_memo.setText(s);
             }
 
         }
@@ -308,7 +337,7 @@ public class MainActivity extends AppCompatActivity {
                                 postfixExp = postfixExp.concat(((Character) stk.pop()).toString());
                             Object openParen = stk.pop();
                             break;
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         // 왼쪽괄호인 경우에는 스택에 push 한다.
@@ -332,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
                                 postfixExp = postfixExp.concat(((Character) stk.pop()).toString());
                             Object openParen = stk.pop();
                             break;
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
 
@@ -340,6 +369,8 @@ public class MainActivity extends AppCompatActivity {
                     case '-':
                     case '×':
                     case '÷':
+                    case '!':
+                    case '^':
                         if (endOfNumber == true) {
                             postfixExp = postfixExp.concat(" ");
                             endOfNumber = false;
@@ -420,6 +451,15 @@ public class MainActivity extends AppCompatActivity {
                         value = new Double(((Double) stk.pop()).doubleValue() / buffer.doubleValue());
                         stk.push(value);
                         break;
+                    case '!':
+                        value = new Double(factorial(((Double) stk.pop()).doubleValue()));
+                        stk.push(value);
+                        break;
+                    case '^':
+                        buffer = new Double(((Double) stk.pop()).doubleValue());
+                        value = new Double(square(((Double) stk.pop()).doubleValue(), buffer.doubleValue()));
+                        stk.push(value);
+                        break;
                 }
             }
             return (Double) stk.peek();
@@ -468,6 +508,46 @@ public class MainActivity extends AppCompatActivity {
             } // end for loop
             return stk.isEmpty(); // empty means matched, else unmatched
         }
+
+
+        // -----------------------------------------
+        // 팩토리얼 계산
+        // -----------------------------------------
+        double factorial(double val) {
+            double a = 0;
+            for (int i = 1; i <= val; i++) {
+
+                if(i==1){
+                    a=i;
+                }else{
+                    a=a*i;
+                }
+            }
+
+            return a;
+        }
+
+
+        // -----------------------------------------
+        // 제곱 계산
+        // -----------------------------------------
+
+        double square(double rval, double val) {
+            double a = 0;
+
+            for (int i = 0; i < val; i++) {
+                if (i == 0) {
+                    a = rval;
+                } else {
+                    a = a * rval;
+                }
+
+            }
+
+            return a;
+        }
+
+
     }
 
     class EmptyStackException extends RuntimeException {
